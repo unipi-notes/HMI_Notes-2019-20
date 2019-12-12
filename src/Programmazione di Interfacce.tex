@@ -8,6 +8,7 @@
 \usepackage[dvipsnames]{xcolor} 				
 \usepackage[hidelinks]{hyperref}		
 \usepackage{chngpage}
+\usepackage{multicol}
 
 \usepackage{authblk}
 \renewcommand\Authand{ e }
@@ -619,7 +620,7 @@ La maggior parte dell'innovazione è fatta come miglioramento incrementale di pr
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.8]{"immagini/Disruptive Innovation"}
+	\includegraphics[scale=0.6]{"immagini/Disruptive Innovation"}
 \end{figure}
 
 Ciò è effettuato riconsiderando l'obbiettivo tramite un procedimento chiamato \textbf{root cause analysis}, che può essere decomposto in quattro fasi.
@@ -633,10 +634,685 @@ La \textbf{root cause analysis} è quindi fatta:
 	\item Tracciando un grafico che descrive le relazioni tra le cause principali e il problema.
 \end{enumerate}
 
+\section{Agile}
+\begin{flushleft}
+	\textit{Partiamo adesso dal presupposto che sappiamo progettare e che abbiamo analizzato un
+		processo, come fare ad innovare?}
+\end{flushleft}
+
+Tipicamente si pensa che l'\textbf{Agile} sia uno strumento, ma in realtà è un \textbf{modo di pensare}
+che rientra nella categoria del Design Thinking.
+
+Sono dei \textbf{metodi di lavoro}: il Design Thinking è come ci poniamo nella soluzione del problemi, mentre invece l'Agile è come applichiamo i metodi del Design Thinking allo sviluppo software, il primo ci
+porta a identicare la soluzione, l'\textbf{Agile è un metodo strutturato per poter permettere lo sviluppo software}.
+Il focus è sugli individui e l'interazione invece che sui processi e sui tools. Il risultato è un software che funziona piuttosto che grandi verbosissime documentazioni. Consiste nello sviluppare capacità di adattamento al cambiamento.
+Le regole non sono dettate dai programmatori o da un "capo" che prende le decisioni,
+tutto è guidato dal processo di design. Il grande concetto dell'Agile rimane comunque quello dell'\textbf{adattabilità}. La mancanza di struttura o documenti non è anarchia, anzi è grande collaborazione e sintonia tra il team.
+
+\pagebreak
+
+\chapter{Personas, Requirements, User Stories, Scenarios e Use Cases}
+\begin{flushleft}
+	\textit{Quali processi e metodi utilizzare per portare avanti un progetto di un
+		prodotto software?}
+\end{flushleft}
+
+In questo capitolo analizzeremo diversi processi.
+Non vanno identifcati come fasi ben definite e statiche, da seguirsi una dietro l'altra, piuttosto come \textbf{fasi} \textbf{dinamiche} e \textbf{alternabili}.
+
+\section{Personas}
+Identifcato correttamente il problema mediante la \textbf{Task Analysis}, come vengono creati gli elementi individuali? Come identifico le \textbf{Personas}?
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{immagini/Personas.png}
+\end{figure}
+
+Il primo passo da fare dopo una Task Analysys è \textbf{identidicare le personas}.
+Una \textbf{personas} è l'\textbf{archetipo di uno dei possibili utenti}. Scrivere e
+identificare le personas aiuta a colmare la distanza tra il cliente e l'azienda, in modo da capire cosa vuole e cosa si aspetta l'utente dal nostro prodotto, ma anche cosa gli crea frustrazione nell'usarlo. Esistono molte \textbf{tecniche} per fare un analisi degli utenti che aiutano i progettisti e identificare e a scrivere le personas:
+
+\begin{itemize}
+	\item \textbf{Task Analysis}.
+	\item \textbf{Feedback} tra i quali: analisi delle attività, interviste e focus groups.
+	\item \textbf{Prototipazione}.
+\end{itemize}
+
+Sorge spontanea la domanda seguente: \textit{ma quante personas dovrei definire}? .
+Per rispondere a questa domanda ci si basa sul \textbf{Principio di Pareto}: \begin{center}
+	\textit{Concentrarsi sul 20\% degli utenti che utilizzerà il prodotto per l'80\% dell'uso complessivo.}
+\end{center}
+
+\pagebreak
+
+\section{Requirements}
+
+Un \textbf{requirement} è un servizio o una caratteristica che assolve a un bisogno di un utente.
+I requirements possono essere funzioni, vincoli, regole aziendali o altri tipi di elementi che devono essere presenti per soddisfare le esigenze degli utenti. È quasi ovvio che trovare i \textbf{requirement corretti} risulta molto più \textbf{semplice} se in precedenza sono state \textbf{individuate} e \textbf{scritte} le \textbf{personas}.
+
+Infatti è controproducente scrivere anticipatamente i requirements,
+è complesso se non impossibile descriverli tutti all'inizio di una fase di progettazione. Risulta più facile descrivere i requirements con l'avanzamento del progetto, in modo di poter capire come moddicare, eliminare o aggiungere i requirements giusti, tenendo in considerazione anche a quali personas è destinato il il prodotto finale.
+
+Il \textbf{requirements-driven development} è complesso e oneroso e va in \textbf{contrasto} con il metodo \textbf{Agile} che richiede si sia sempre pronti al cambiamento. Questo approccio così poco flessibile sta andando sempre meno di moda ma è bene scrivere e seguire quei requirements per quel 20\% di software che utilizzerà l'80\% delle personas.
+
+Esistono due tipo di requirements per il mondo della UI:
+
+\begin{itemize}
+	\item \textbf{Funzionali}:
+	      descrivono quali funzionalità deve avere il software. Rispondono alla domanda:
+	      \textit{Cosa fa?}
+	\item \textbf{Non funzionali}: specificano i tratti qualitativi del prodotto. Risponde alla domanda: \textit{Come lo fa?} e descrivono inoltre gli
+	      attributi come sicurezza affidabilità e manutenibilità.
+\end{itemize}
+
+\section{User Stories}
+Dopo aver definito personas e requirements, il prossimo passo è la scrittura delle \textbf{User Stories}.
+
+Una \textbf{user story} è una breve descrizione che identifica l'utente insieme al suo
+obiettivo, determina \textbf{chi è l'utente}, \textbf{di cosa ha bisogno e perché ne ha bisogno}. Tipicamente ci sono una o più user stories per ogni personas, ma non il contrario: avere più personas per una user story significa aver descritto la medesima personas con termini differenti e quindi avere introdotto troppe personas.
+Nel caso in cui una user story non copre tutte le sfaccettature della singola personas che dovrebbe descrivere, allora ho una personas troppo \textbf{ampia} ed è bene che si suddivida tale persona in più personas.
+
+Una user story è un \textbf{requirement} espresso \textbf{dalla prospettiva del cliente}.
+
+Con le user stories si ottengono due importanti risultati: si \textbf{migliorano le descrizioni delle personas}, migliorando il dettaglio e arricchendola con una narrativa, e si ha un elemento tangibile per valutare lo sviluppo del prodotto e fare il punto della situazione.
+Esiste uno schema ben preciso per scrivere una user story:
+
+\begin{center}
+	\textbf{\large As a [role], I want [feature] because [reason]}
+\end{center}
+
+\begin{flushleft}
+	\textit{Chi scrive le user stories?}
+\end{flushleft}
+
+Tutti! È responsabilità del proprietario del prodotto assicurarsi che vengano scritte delle stories giuste e corrette, ma non significa che le debba
+scrivere lui stesso. Nel corso di un buon progetto Agile ci si aspetta che ogni membro del team scriva user stories usando un \textbf{metodo collaborativo}.
+
+\pagebreak
+
+\begin{flushleft}
+	\textit{A che livello scriverle?}
+\end{flushleft}
+
+Una dei grandi benefici delle user stories è che possono essere
+scritte a \textbf{vari livelli di dettaglio}.
+
+Possiamo avere user stories di livello \textbf{Epics} cioè che
+copre un larga quantità di funzionalità.Tipicamente sono disutili ma possono diventare interessanti se spacchettate in user stories più piccole e quindi con maggior livello di dettaglio. Una user story epic può essere divisa in decine o centinaia di user stories più piccole.
+
+Il dettaglio può essere aggiunto sostanzialmente in due modi:
+\begin{enumerate}
+	\item Suddividendo una user story in user stories più piccole e quindi più dettagliate.
+	\item Aggiungendo \textbf{condizioni di soddisfacimento dell'utente}, ovvero  dettagli contribuenti al grado di soddisfacimento dell'utente, spacchettandole per ogni membro di soddisfacimento. Quest'ultima è una tecnica molto difficile da essere utilizzata nel mondo della progettazione software).
+\end{enumerate}
+
+\section{Scenarios}
+
+Gli \textbf{scenarios} sono l'\textbf{evoluzione delle user stories}. Una user story sintetizza in bravi frasi cosa fa l'utente con il software e quale bisogno deve soddisfare.
+
+Lo scenario estende la user story andando a descrivere anche le motivazioni dell'utente per cui usa il software e come si comporterà nell'utilizzo. Inoltre gli scopi o \textbf{goals} delle persones vengono estesi e descritti in maniera più ampia.
+
+\begin{flushleft}
+	\textit{Ma a cosa serve uno scenario?}
+\end{flushleft}
+
+Le \textbf{user stories} sono \textbf{sintetiche}, \textbf{brevi} e dicono cosa sviluppare e poco più, e quindi sono informative e comprensibili solo agli \textbf{addetti al mestiere}. Gli \textbf{scenarios}, essendo più ricchi in dettaglia, sono più comprensibili
+agli \textbf{stakeholders}, quindi sono utili per comunicare e interloquire con persone fuori dal team di sviluppo. Quindi sono soprattutto utili per allinearsi con le richieste del cliente. Sono utili anche all'interno del team per allineare le idee di sviluppo.
+
+Un buon scenario risponde alle seguenti domande chiave:
+
+\begin{itemize}
+	\item Chi è l'utente?
+	\item Quale è la motivazione che lo ha spinto ad usare il prodotto e cosa si aspetta?
+	\item Qual è il suo obbiettivo?
+\end{itemize}
+
+In alcuni casi uno scenario potrebbe includere anche aspetti circa \textit{come} fare le cose, ma ciò appartiene al mondo degli use case che verranno analizzati successivamente.
+Per \textbf{definire gli scenarios}, è necessario \textbf{mapparli}. Bisogna partire avendo già le personas e le relative user stories, e individuare per ogni personas un key task che essa deve svolgere. Si può scrivere gli scenarios racchiudendo una o più
+user stories relative alla personas, tipicamente per ogni personas descrivo almeno uno
+scenario. È necessario \textbf{focalizzarsi sul key task} e quindi contestualizzare nel miglior modo possibile il goal dell'utente e come è influenzato dal contesto in cui egli si trova.
+
+Quindi grazie agli scenarios \textbf{possiamo determinare}:
+
+\begin{itemize}
+	\item I punti più importanti su cui concentrarsi durante il processo di progettazione di UX.
+	\item Quali fasi del processo richiedono ulteriore revisione e attenzione.
+	\item Le principali esigenze e motivazione dell'utente
+\end{itemize}
+
+\pagebreak
 
 
+Ci sono \textbf{tre metodi principali per scrivere gli scenarios}:
+
+\begin{itemize}
+	\item Piccoli \textbf{goal/task oriented scenarios} ,brevi, sono quasi una semplice estensione della dialettica di una user story.
+	\item \textbf{Elaborated Scenarios}: sono versione più elaborata con molto più contesto.
+	\item \textbf{Full Scale Task Scenarios}: sono talmente dettagliati che i singoli task delle attività sono praticamente scritti sotto forma di paragrafo dello scenarios. Da evitare, si rischia gli scenarios così ottenuti siano uguali agli use cases.
+\end{itemize}
+
+\section{Use Cases}
+
+Gli use cases sono la naturale evoluzione degli scenarios.
+\textbf{Consistono della completa narrativa di quali azioni l'utente compie per svolgere uno scenario}.
+
+Ogni \textbf{caso d'uso} è una \textbf{serie di step monolitici}, quindi una nuova task list prodotta dal processo di design per innovare un metodo che è stato analizzato e descritto in precedenza mediante la task analysis.
+Uno \textbf{scenario} si concentra su una situazione che coinvolge un \textbf{attore} o più, mentre un
+\textbf{caso d'uso} è incentrato sulla \textbf{personas}, come si comporta, che decisioni prende e come interagisce con la nostra piattaforma o software. I casi d'uso aggiungono valore perché aiutano a \textbf{spiegare come dovrebbe comportarsi
+	il sistema e il processo}, inoltre aiutano anche nella fase progettuale di brainstorming e danno un'idea su cosa potrebbe andare storto. Forniscono inoltre un elenco di obiettivi e questo elenco può essere utilizzato per stabilire e complessità del sistema. I casi d'uso sono \textbf{diretti allo sviluppo}.
+
+Con dei casi d'uso ben fatti si può passare direttamente all'implementazione poiché delimitano precisamente cosa deve fare il sistema e come si deve comportare nelle varie situazioni.
+
+In un caso d'uso sono \textbf{inclusi}:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item \textbf{L'utente}.
+		\item \textbf{Cosa vuole fare l'utente}.
+		\item \textbf{Qual è il suo scopo o goal}.
+		\item Gli \textbf{step necessari} per arrivare allo scopo.
+		\item I \textbf{feedback} che il sistema restituisce durante i vari step.
+	\end{itemize}
+\end{multicols}
+
+\textbf{Non sono inclusi} in un caso d'uso:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item Qualsiasi \textbf{dettaglio} implementativo o di scelta tecnologica che non sia un constraint o un requirement.
+		\item \textbf{Dettagli} riguardanti l'interfaccia utente.
+	\end{itemize}
+\end{multicols}
+
+I passaggi da seguire per scrivere un caso d'uso sono:
+
+\begin{multicols}{2}
 
 
+	\begin{enumerate}
+		\item Identificare gli utenti o le personas.
+		\item Sceglierne una per caso d'uso.
+		\item Identificare i suoi obiettivi.
+		\item Discernere i task principali da quelli secondari: applicare il principio di Pareto, quindi focalizzarsi sul basic path e non su casi particolari.
+		\item Considerare le sequenze alternative.
+		\item Cercare i punti in comune tra i vari casi d'uso e accorparli, riducendoli ove possibile.
+		\item Ripetere il procedimento per tutti gli utenti.
+	\end{enumerate}
+\end{multicols}
 
+Questi passaggi se seguiti correttamente consentono di identificare informazioni chiave sugli utenti, utili a costruire prodotti che soddisfano i tutte le possibili personas. \textbf{Ogni passo che ci avvicina all'utente è un passo verso la giusta direzione}.
+
+\pagebreak
+
+\chapter{Human Error}
+
+La maggior parte degli incidenti industriali è causata da errore umano:
+le stime si aggirano intorno al 75\% e il 95\%.
+
+\begin{flushleft}
+	\textit{Come è possibile che tante persone siano così incompetenti?}
+\end{flushleft}
+
+La risposta è semplice! Non lo sono, il problema è nella mal progettazione e nel cattivo design.
+
+Si continuano a produrre dispositivi e software che richiedono, a chi li usa, di mantenere per ore un'attenzione e una vigilanza complete, oppure di memorizzare procedure arcaiche e confuse anche se usate di rado, magari anche una sola volta nella vita. Costringiamo le persone a stare in un ambiente monotono senza nulla da fare per ore e ore, salvo dovere improvvisamente rispondere con rapidità e precisione. Le sottoponiamo a un ambiente di lavoro complesso e sovraccarico, dove sono continuamente interrotte durante l'esecuzione di compiti simultanei, e l'\textbf{interruzione è una delle cause più frequenti che portano all'errore umano}.
+
+Uno dei più grandi \textbf{problemi} è l'\textbf{atteggiamento delle persone verso gli errori} commessi. Quando un errore causa perdite economiche o, peggio ancora, danni alle persone, si istituisce una speciale commissione d'inchiesta, che quasi immancabilmente trova i colpevoli.
+
+Il passo successivo è punirli con multe, il licenziamento o il carcere. Incolpare
+e punire o, nella migliore delle ipotesi, incolpare e addestrare. Tutto questo non
+risolve il problema: lo stesso errore continuerà a presentarsi. Viceversa, quando viene commesso un errore va studiato il motivo per poi ridisegnare il prodotto o le procedure in modo che non si ripeta o, se dovesse ripetersi, che i danni siano ridotti al minimo.
+
+\section{Root Cause Analysis}
+La \textbf{Root Cause Analysis} consiste nell'indagare l'incidente finché non si trova la singola causa che ne è all'origine. Ovvero il momento nel tempo quando effettivamente qualcuno ha preso decisioni o eseguito azioni sbagliate e
+una volta fatto ciò accertarsi da cosa è derivato lo sbaglio. Purtroppo, troppo spesso il processo si ferma non appena si scopre che una persona ha agito in maniera impropria, additandolo come \textit{colpevole}.
+
+Cercare di trovare la causa di un incidente suona bene, ma ha due difetti.
+
+\begin{enumerate}
+	\item \textbf{Primo}: la maggior parte degli incidenti non ha una sola causa da quì il \textbf{modello a groviera degli incidenti} di James Reason.
+	\item \textbf{Secondo}: Solitamente l'analisi delle cause profonde si ferma non appena trovato un errore umano.
+\end{enumerate}
+
+\pagebreak
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{immagini/Groviera.png}
+	\caption{Modello a groviera.}
+\end{figure}
+
+Se una macchina smette di funzionare per un guasto o un malfunzionamento
+si cerca di capire come mai si è rotto o cosa ha portato a un determinato errore. Lo
+stesso dovremmo fare quando troviamo un errore umano: \textbf{scoprire cosa lo ha prodotto}.
+
+Quando l'analisi delle cause profonde incontra nella concatenazione di cause ed effetti un errore umano, il lavoro è appena cominciato: bisogna capire \textbf{perché} l'errore \textbf{è accaduto e cosa si può fare per prevenirlo}.
+
+\section{I cinque perchè}
+
+L'analisi delle cause profonde mira a determinare la causa \textbf{prima di un evento}, non la causa immediata.
+
+In Giappone da tempo si usa a questo scopo una procedura detta dei \textbf{cinque perché} ideata da Sakichi Toyoda e impiegata dalla Toyota nell'ambito del sistema di controllo qualità dei suoi prodotti.
+
+Fondamentalmente significa che quando si cerca la ragione di una evento non ci si ferma dopo averne trovata una, ma si continua a indagare fino a che non si trovano
+le vere cause di fondo.
+
+Va ripetuta davvero cinque volte?
+
+No, ma chiamarla \textit{procedura dei cinque perché} sottolinea la necessità di proseguire anche dopo aver trovano una
+causa apparente.
+
+Vediamo un esempio: \textbf{il veicolo non si accende}.
+
+\begin{enumerate}
+	\item Perché La batteria è morta.
+	\item Perché l'alimentatore non funziona.
+	\item Perché la cinghia dell'alternatore non funziona.
+	\item Perché la cinghia dell'alternatore era ben oltre il suo tempo di servizio e
+	      non è stata sostituita.
+	\item Perché il veicolo non è stato mantenuto secondo le tempistiche raccomandate.
+\end{enumerate}
+
+Quando le persone sbagliano, bisogna \textbf{cambiare il sistema} in modo da evitare l'errore
+e, se non è possibile eliminarlo del tutto, aleno fare in modo di ridurne gli effetti.
+
+Se il sistema lascia sbagliare gli utenti è mal progettato, se il sistema induce all'errore, allora è progettato malissimo.
+
+\pagebreak
+
+\begin{flushleft}
+	\textit{Perchè le persone sbagliano?}
+\end{flushleft}
+
+Perchè il design si concentra sulle esigenze del sistema
+e delle macchine, non su quelle degli utenti. Le macchine hanno bisogno in genere di
+comandi precisi, obbligando l'operatore a introdurre esatte informazioni numeriche. Ma
+noi esseri umani non siamo molto adatti a una grande precisione e commettiamo spesso
+errori quando dobbiamo digitare lunghe sequenze di numeri o lettere.
+
+Gli umani sono creativi, curiosi, costruttivi, particolarmente bravi nel creare modi nuovi di fare le cose, nel cogliere nuove opportunità. Compiti monotoni,ripetitivi, precisi contraddicono tali qualità.
+
+\section{Definizione di errore}
+Si definisce \textbf{errore umano} ogni deviazione del comportamento appropriato. Il termine appropriato è da prendere con le pinze, perché in molte circostanze si scopre quale fosse il comportamento giusto successivamente.
+
+Generalmente comunque si chiamano errori ogni comportamento che si discosti da quello generalmente accettato come giusto o adeguato. Errore è il termine generale per tutte le situazioni sbagliate. Possiamo dividere gli errori in \textbf{due} classi:
+
+\begin{multicols}{2}
+	\centering
+	\includegraphics[scale=0.25]{immagini/Errors.png}
+	\includegraphics[scale=0.4]{immagini/Errors1.png}
+\end{multicols}
+
+\begin{enumerate}
+	\item \textbf{Lapsus o Slips}: si ha un laspus quando si intende eseguire un'azione e si finisce per fare qualcos'altro. Nel caso del lapsus, l'azione eseguita non è quella voluta. Ci sono \textbf{due tipi principali di lapsus}:
+	      \textbf{lapsus di azione e lapsus di memoria}.
+	      Nel primo caso si esegue un'azione sbagliata, nel secondo si dimentica di eseguire
+	      l'azione o di valutarne i risultati.
+	      Esempio di lapsus di azione: versare il latte nel caffè e poi riporre la tazza in frigorifero. L'azione è giusta ma è applicata all'oggetto sbagliato.
+	      Esempio di lapsus di memoria: dimenticare di spegnere il fornello dopo aver	terminato la cottura. \textbf{I lapsus si hanno nelle fasi attuative e percettive dell'azione.}
+	\item \textbf{Errori cognitivi o Mistakes}: si ha un errore cognitivo quando è sbagliato il goal o lo scopo: da quel momento in poi le azioni, anche se eseguite a puntino, fanno parte dell'errore essendo di per se inappropriate, in quanto parte di un progetto sbagliato. In questo tipo di errore l'azione è corretta ma l'intenzione no.
+	      Gli errori cognitivi si suddividono in: \textbf{regola sbagliata}, \textbf{conoscenza sbagliata e dimenticanza}. In un errore fondato sull'applicazione della regola sbagliata, la
+	      diagnosi della situazione è gusta, ma poi si sceglie un corso d'azione sbagliato,
+	      seguendo una regola operativa errata. In un errore causato da conoscenza erronea
+	      o incompleta, a essere sbagliata è la diagnosi stessa della situazione. Gli errori per dimenticanza si hanno invece quando ci si dimentica di qualche passaggio al momento di fissare gli obiettivi, di eseguire una procedura o di valutarne i risultati. \textbf{Gli errori si fanno nelle fasi di tipo cognitivo.}
+\end{enumerate}
+
+\pagebreak
+
+\section{Prevenzione dell'errore}
+
+\begin{flushleft}
+	\textit{Non dovrebbe essere possibile che un semplice errore provochi un danno diffuso.}
+\end{flushleft}
+
+Eccocche cosa dovrebbe essere fatto in fase di prevenzione:
+
+\begin{itemize}
+	\item Comprendere le cause dell'errore per minimizzarne il ripresentarsi.
+	\item Effettuare controlli di sensibilità, ovvero, chiedersi se le azioni superano il \textit{test del buon senso}.
+	\item Rendere possibile annullare le azioni (undo) o rendere più diffcile fare ciò che non può essere annullato (per esempio con uso di lock).
+	\item Rendere più semplice la scoperta e la comprensione degli errori e semplificarne la risoluzione.
+	\item Non trattare l'azione come errore, piuttosto aiutare l'utente a compiere correttamente l'azione.
+\end{itemize}
+
+I \textbf{novizi}, gli utenti base, coloro meno esperti del sistema cadono in \textbf{errori per lo più cognitivi} poiché non hanno una base di conoscenza adeguata e sufficientemente strutturata, viceversa, gli \textbf{utenti esperti} che usano il software o il sistema tutti i giorni e che lo conoscono bene fanno più errori di tipo \textbf{lapsus} poiché tendono a eseguire i compiti in maniera automatica, quasi istintiva, affidandosi al controllo subconscio, mentre un
+principiante è costretto a fare molta attenzione, cosicché incorre meno nei lapsus.
+
+Gli \textbf{errori cognitivi} nascono dalla scelta di scopi e piani d'azione inadeguati, oppure, in sede di valutazione, dal confronto errato tra risultati e scopi. In altre parole dipendono da \textbf{informazioni ambigue o poco chiare sullo stato attuale del sistema e dalla mancanza di un buon modello concettuale}.
+
+Vediamo adesso quali possono essere le cause di errori e come possiamo prevenirle.
+
+Le \textbf{interruzioni} sono una delle più grandi cause di errore e \textbf{soprattutto lapsus}. Quando un'attività viene interrotta da qualche evento, il costo dell'attenzione è molto maggiore della perdita di tempo richiesta per avere a che fare con l'interruzione. Per riprendere è necessario ricordare precisamente il precedente stato dell'attività: quale era l'obiettivo, a che punto del ciclo dell'azione si era rimasti, quale era lo stato del sistema.
+
+La maggior parte dei sistemi rende difficile la ripresa a seguito di una interruzione, ma riducendone i passaggi è possibile diminuire il costo per riprendere la concentrazione dopo essersi interrotti.
+
+Un altro fattore di errore sono i \textbf{feedback errati}: avvisi fastidiosi, non necessari che si presentano spesso nell'uso di un sistema. Spesso vengono silenziati, disattivati o ignorati, facendo perdere di significato anche quelli utili per il raggiungimento dello scopo.
+
+Se usiamo i feedback per segnalare errori, ma essi sono stati disattivati dall'utente, egli cadrà in errore non conoscendone nemmeno il motivo. Avvisi e metodi di sicurezza vanno usati con cura e intelligenza.
+
+Un numero sempre maggiore di macchine e sistemi offrono informazioni attraverso l'uso di interfacce vocali , ma come tutti gli approcci anche questo ha dei pro e
+dei contro. Da una parte consente di fornire informazioni precise, specialmente quando
+l'attenzione visiva è diretta da qualche altra parte, ma se l'ambiente è rumoroso o se ci sono diversi avvisi vocali contemporaneamente, tali avvisi possono non essere compresi o risultare addirittura fastidiosi.
+
+\pagebreak
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{immagini/Damn.png}
+\end{figure}
+
+Per prevenire errori possiamo quindi utilizzare:
+\begin{itemize}
+	\item \textbf{Constraints}: aggiungere vincoli alle azioni. I sistemi elettronici hanno un'ampia selezione di metodi che possono essere usati per ridurre l'errore. Uno di questi può essere segregare i controlli, cosicché controlli confondibili tra loro vengano piazzati lontani l'uno dall'altro. Un altro è di separare i moduli, cosicché qualsiasi controllo non direttamente rilevante all'operazione corrente non sia visibile a schermo ma richieda uno sforzo extra per essere raggiunto.
+	\item \textbf{Undo}: comando che annulla le operazioni effettuate dal precedente comando. I sistemi migliori hanno più livelli di undoing in modo tale da annullare intere sequenze di azioni.
+	      \textbf{Messaggi d'errore e di conferma}: molti sistemi cercano di prevenire l'errore richiedendo conferma prima di eseguire un comando, specialmente quando l'azione distruggerà qualcosa di importante. Ma queste richieste sono spesso mal temporeggiate, perché dopo aver richiesto un'operazione le persone sono solitamente certe di volerla compiere. Un controllo migliore sarebbe visualizzare sia l'azione da compiere e l'oggetto interessato, con l'opzione annulla o prosegui.\textbf{ I messaggi di avviso sono sono sorprendentemente inefficaci contro gli errori}.
+
+	\item  \textbf{Controlli di Sensibilità}: i sistemi elettronici hanno il vantaggio di poter controllare che l'operazione richiesta sia sensibile o ragionevole. Ad esempio verificare che l'importo indicato sia giusto, magari esponendo un avviso in caso di numeri eccessivamente grandi.
+\end{itemize}
+In estrema sintesi e ricollegandosi all'esempio della groviera, per ridurre gli errori abbiamo le seguenti possibilità:
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{immagini/Groviera.png}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Aumentare il numero di controlli} (le fette).
+	\item \textbf{Migliorare il modello concettuale dell'utente}. (ridurre il numero di buchi, o rendere più piccoli i buchi esistenti, magari con un modello concettuale minimale e dei constraints)
+	\item \textbf{Allertare l'operatore umano quando diversi buchi si allineano}.
+\end{itemize}
+
+\pagebreak
+
+\chapter{Pretotyping}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{immagini/Fall_mercato.png}
+\end{figure}
+Un prodotto \textbf{pretotipo} serve a lottare contro la legge di fallimento di mercato. Ogni anno vengono progettati e prodotti quasi 25000 nuovi prodotti e l'80\% non vedrà mai la luce o non arriverà mai nelle case delle persone. Circa il 27\%
+falliscono nel percorso di crescita dell'azienda, il 16\% non raggiungono le aspettative degli utenti, trattasi quindi di fallimento di mercato, e per ben il 37\% vengono cancellati durante la fase di lancio.
+
+Del 20\% rimanente, il 14\% sono prodotti che raggiungo il mercato e ci rimangono ma
+non hanno successo. \textbf{Solo il 6\% ha veramente successo}. La
+Legge del Fallimento di Mercato dice che la maggior parte dei nuovi prodotti fallirà nel mercato anche se la progettazione e lo sviluppo vengono eseguite in maniera corretta e competente.
+In legge, una persona è considerata innocente fino a prova contraria, mentre nella legge di mercato, \textbf{bisogna supporre ogni prodotto come un fallito fino a prova contraria}.
+
+\section{Thoughtland, il mondo dei pensieri}
+Quando si progetta un nuovo prodotto, o si ha semplicemente un'idea ci si trova di fronte a \textbf{due grandi problemi}: \textbf{lost in translation}, ovvero l'idea è un'astrazione soggettiva, qualcosa che si può immaginare o visualizzare in testa. Nel momento in cui si prova a comunicarla a qualcun altro, si incontra un problema
+di traduzione, specialmente quando l'idea è nuova e diversa da qualsiasi altra cosa
+abbia visto l'interlocutore.
+
+Il modo in cui si immaginano un nuovo prodotto e i suoi usi può essere completamente diverso da come gli altri li immaginano a loro volta. Si può ovviare utilizzando termini già noti, infatti è molto difficile veicolare il modello concettuale all'utente. L'altro problema è conosciuto come il \textbf{problema della predizione}: anche se la comprensione astratta dell'idea che l'interlocutore ha è molto vicina alla propria, egli in quanto essere umano è molto scarso per sua natura nel prevedere se essa potrebbe essere di suo gradimento o meno.
+
+\pagebreak
+
+\section{Thoughts without datas are just opinions}
+
+\begin{flushleft}
+	\textit{I pensieri senza dati sono solo opinioni.}
+\end{flushleft}
+
+Questa è una delle più importanti frasi da tenere presente quando si parla di nuovi oggetti o idee da immettere nel mercato, anche se è spesso sottovalutata.
+
+I falsi positivi possono portare a credere che l'idea sia immune alla legge del
+fallimento di mercato, e quindi a investire troppo e presto in un prodotto che fallirà.
+
+I falsi negativi possono invece spaventare e portare a non concedere una chance all'
+idea, finendo per scartare prematuramente il prossimo Twitter, Google o Tesla.
+
+Per poter minimizzare la possibilità di ottenere falsi positivi o negativi è necessario \textbf{uscire dal Thoughtland}, e quindi dal mondo delle idee astratte e delle opinioni, e \textbf{muoversi verso l'Actionland} dove si usano artefatti per collezionare dati e osservare le azioni degli utenti. Nel primo caso si usano le domande o questionari per poter ottenere informazioni sul prodotto
+che si andrà a sviluppare, col il rischio di collezionare opinioni poco utili e magari fuorvianti, nel secondo caso mediante gli artefatti, si fanno svolgere azioni agli utenti al fine di raccogliere dati.
+
+I prodotti del Thoughtland sono: \textbf{idee, domande e opinioni}. Quelli dell'Actionland sono \textbf{artefatti}, \textbf{azioni} e \textbf{dati}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{immagini/Manifesto.png}
+\end{figure}
+
+\section{Pretotype vs Prototype}
+I prototipi aiutano a fallire in fretta, ma spesso non abbastanza in fretta o non abbastanza economicamente.
+
+Più si investe in qualcosa e più diventa difficile lasciarla morire e ammettere che era la cosa sbagliata, anzi tendenzialmente, una volta ottenuto un buon prototipo che funziona, è facile portarlo avanti investendo ancora denaro e tempo pensando che l'aggiunta di funzionalità e features sia la risposta per renderlo vincente.
+
+Molto spesso i prodotti lanciati sul mercato non sono altro che prototipi andati troppo oltre. Tra il mondo delle idee astratte e i prototipi funzionanti, si collocano i \textbf{pretotypes}.
+
+\textbf{Un pretotipo è un semplice mockup del prodotto che si vorrebbe sviluppare} ed è utile per ottenere informazioni d'uso e di mercato e per poter prendere decisioni su cosa fare e su cosa non fare.
+
+La \textbf{principale differenza} tra un pretotipo e un prototipo è l'\textbf{investimento}: un pretotipo costa molto meno sia in termini di tempo che in termini di denaro, e consente di fallire in fretta o nel caso, poichè lascia un ampio spazio di manovra, di apportare modifiche.
+
+\pagebreak
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.65]{immagini/Pre_prot.png}
+\end{figure}
+
+Il \textbf{pretotyping} ha l'obiettivo di aiutare a:
+
+\begin{itemize}
+	\item Identificare le funzionalità chiave del nuovo prodotto.
+	\item Decidere quali di queste possono o dovrebbero essere inserite nel mockup.
+	\item Usare i mockup per testare sistematicamente e collezionare feedback e dati d'uso.
+	\item Analizzare i dati raccolti per determinare il prossimo passo da compiere.
+\end{itemize}
+
+I \textbf{sette pilastri del Pretotyping} sono:
+
+\begin{itemize}
+	\item \textbf{Obbedire alla Legge del Fallimento di Mercato}.
+	\item \textbf{Assicurarsi di stare costruendo il prodotto giusto}.
+	\item \textbf{non perdersi in chiacchiere, idee o opinioni}.
+	\item \textbf{Fidarsi solo dei propri dati, \textbf{TRUST YODA: Your Own DAta}}.
+	\item \textbf{Dare pretotype}.
+	\item \textbf{Parlare con i numeri e con i fatti}.
+	\item \textbf{Pensare globalmente e non localmente}.
+\end{itemize}
+
+\section{Flusso del Pretotyping}
+
+I \textbf{cinque step} per produrre un buon pretotipo sono i seguenti:
+
+\begin{itemize}
+	\item \textbf{Isolare l'assuzione chiave}: quale è la assunzione o funzionalità chiave dell'idea che, se falsa, ne minerebbe la validità?
+	\item \textbf{Scegliere un tipo di pretotype}: quale tipo ti pretotyping permette di isolare e testare al meglio le funzionalità chiave?
+	\item \textbf{Fare ipotesi di mercato}: quante e quali tipi di persone utilizzeranno il pretotipo? Come lo utilizzeranno? Sarebbe possibile ipotizzare le percentuali di un determinato utilizzo?
+	\item \textbf{Testare il pretotype}: mettere il pretotipo nel mondo reale e vedere quante persone sono interessate e quante ci interagiscono. Bisogna partire dal basso, un passo alla volta.
+	\item \textbf{Imparare, rifinire, hypozoom}: valutare i risultati, rifinire il pretotipo con i nuovi dati, e se l'ipotesi ha retto, decidere quali altre situazioni testare per ottenere una \textbf{visione completa o hypozooming}.
+\end{itemize}
+
+\pagebreak
+
+\section{Titpi di Pretotyping}
+Andiamo ad analizzare alcuni tipi di pretotyping.
+\begin{itemize}
+	\item Una \textbf{Fake Door} è un marketing entry point per un prodotto che ancora \textbf{non esiste} e può essere utilizzata per pubblicizzare un servizio non ancora pronto e misurare l'interesse degli utenti.
+
+	      È un buon modo per capire se l'oggetto che si vuole sviluppare può avere successo o meno, spendendo pochissimo e quindi, in caso di fallimento, avere un basso impatto economico inteso sempre sia in termini di denaro che di tempo. Si può usare
+	      questo tipo di pretotyping \textbf{quando l'idea può essere descritta in poche e semplici parole}, senza possedere nulla di fisico o materiale.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.42]{immagini/Fake_door.png}
+	      \end{figure}
+
+	\item Si parla di \textbf{Mechanical Turk} quando si riesce a creare la medesima esperienza di un utente nell'utilizzo di una interfaccia senza sviluppare niente ma usando solo man power. È molto utilizzato per sperimentare l'uso e la reale applicabilità di software e algoritmi molto costosi per essere implementati.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.42]{immagini/Mechanical_turk.png}
+	      \end{figure}
+
+	\item Un \textbf{Impersonator} è un pretotipo che riesce a far vivere un'esperienza realistica all'utente in modo estremamente economico e con un lavoro minimo dietro. Consente cioè di
+	      far vivere l'esperienza esattamente come se il prodotto fosse finito e pronto per essere lanciato.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.42]{immagini/Impersonator.png}
+	      \end{figure}
+
+	      \pagebreak
+
+	\item Un \textbf{Pinocchio} è quel pretotype che è \textbf{chiaramente falso}, ma serve per veicolare un messaggio che è così distante dalla realtà attuale che è faticoso e difficile da spiegare in altri linguaggi naturali. Usato molto spesso per testare l'interesse e il possibile uso di prodotti innovativi e non ancora lanciati da nessuno, nemmeno in maniera simile, sul mercato.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.5]{immagini/Pinocchio.png}
+	      \end{figure}
+
+	\item Per \textbf{One Night Stand} s'intende una tecnica di veicolazione di un pretotype. Consiste di un market test per un altro pretotype.
+	      Viene usato insieme ad un'altra tecnicha di pretotyping per veicolare meglio il messaggio a una certa cerchia di persone.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.5]{immagini/One_night_stand.png}
+	      \end{figure}
+
+
+	\item Un \textbf{Facade} è una sorta di Impersonator ma usato per dare l'immagine dell'azienda e non del prodotto stesso. Viene usato spesso per promuovere servizi.
+
+	      \begin{figure}[!h]
+		      \centering
+		      \includegraphics[scale=0.5]{immagini/Facade.png}
+	      \end{figure}
+
+\end{itemize}
+
+\pagebreak
+
+\section{Minimum Viable Product}
+
+Dopo vari fasi di pretotyping e aver abbastanza sicurezze sul successo del prodotto, lo step successivo è produrre il Minimum Viable Product , cioè la \textbf{versione minimale del prodotto che contiene solo ed esclusivamente le features che rappresentano il business che si è pretotipato attraverso il percorso precedente}.
+Non si ha ancora per le mani un prodotto definitivo besì un qualcosa di vendibile, in modo da ottenere del ricavo e dell'utile, che se sufficiente, permetterebbe la produzione definitiva del prodotto.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{immagini/MVP.png}
+	\caption{Minimum Viable Product.}
+	\includegraphics[scale=0.4]{immagini/ONS.png}
+	\includegraphics[scale=0.4]{immagini/Pnocc.png}
+	\caption{A sinistra esempi di one night stands e a destra esempi di pinocchio.}
+	\includegraphics[scale=0.5]{immagini/Imp.png}
+	\caption{Esempi di Impersonator.}
+\end{figure}
+
+\pagebreak
+
+\chapter{UX for connected devices}
+
+Quando ci si trova di fronte a progettare il design dell'interfaccia di un dispositivo
+connesso, si tende si tende ad adottare un approccio in linea alla \textit{vecchia
+	scuola} della UI e UX. Si tende quindi a dare maggior peso e a spendere maggior concentrazione su aspetti come l'estetica delle interfacce e design del prodotto fisico. Per l'IoT ciò non basta!
+
+Un prodotto interconnesso può avere un'ottima UI ma una pessima UX, esso non è costituito solamente dalla sua apparenza o dalla sua interfaccia, ma è \textbf{l'insieme delle due cose}.
+
+Internet è un \textbf{mezzo di comunicazione}, fatto dagli uomini per gli uomini, \textbf{l'Internet od Things o IoT è un sistema di dispositivi informatici correlati}, macchine meccaniche o digitali fornite di un identificatore unico detto UID.
+
+Esse possiedono la capacità di trasferire i dati sulla rete senza richiedere l'interazione uomo-uomo o uomo-computer.
+La differenza tra i due mondi è sottile e spesso gli oggetti IoT sono creati per comunicare perfettamente tra di loro, ma hanno una pessima UI per l'uso umano, e
+di conseguenza sono portatori di una pessima UX.
+
+\section{Industry 4.0}
+
+Il termine \textbf{Industria 4.0} indica una tendenza dell'automazione industriale ad \textbf{integrare} alcune nuove \textbf{tecnologie produttive} per \textbf{migliorare} le condizioni di lavoro, creare nuovi modelli di business e aumentare la produttività e la qualità produttiva degli impianti.
+
+I sistemi computerizzati monitorano i processi fisici, creando copie virtuali del mondo fisico su cui basare le scelte e decisioni future per il business dell'azienda.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.7]{immagini/Industry4.png}
+\end{figure}
+
+\pagebreak
+
+Il problema di ogni tappa della rivoluzione industriale risiede nella \textbf{complessità informatica} che è andata ad aumentare esponenzialmente. I dati parlano chiaro: il salto informativo tra l'industria 3.0 all'industria 4.0 è pari al totale del salto effettuato da quando si usava l'asino come mezzo di
+locomozione per i campi fino alle attuali tecnologie.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{immagini/Revolution.png}
+\end{figure}
+
+Quello che prima era un \textbf{processo produttivo}, con l'industria 4.0 diventa un \textbf{servizio} e la quantità di informazione necessaria cresce incredibilmente, di conseguenze progettare per la UX diventa veramente complesso.
+
+Ma come mai è importante questa evoluzione? Per queste ragioni:
+
+\begin{itemize}
+	\item  Ottimizzando la produzione i profitti aumentano.
+	\item Sarà possibile creare nuovi modelli di business.
+	\item Saranno accessibili nuovi tecnologie.
+	\item Sarà possibile trasformare la forza lavoro da operai in tecnici, capaci di estrarre informazioni dalle macchine e modificare la produzione di conseguenza.
+\end{itemize}
+
+Il cuore di un sistema interconnesso sia di tipo consumer che industriale è il
+\textbf{Digital Twin}. Il \textbf{Digital Twin} è  una copia digitale di un bene, di una macchina o di un processo reale, esistente. La comunicazione tra l'oggetto fisico e il Digital Twin è \textbf{continua e bidirezionale}. Tale strumento può essere usato sia per logging o per controllo remoto, ma sopratutto è utile per simulazioni e manutenzione.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{immagini/Holistic.png}
+\end{figure}
+
+\pagebreak
+
+\section{Products and Services in the 4.0 era}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{immagini/Hype.png}
+	\caption{Gartner Hype Cycle for emerging technologies.}
+\end{figure}
+
+L'IoT è solo una tecnologia abilitante, quindi non bisogna progettare per l'IoT bensì bisogna progettare sistemi interconnessi. Ciò altera il paradigma di progettazione: se prima erano i computer ad essere dei centri di aggregazione tecnologica, qualche anno fa, ad esempio, in una qualsiasi casa l'unico oggetto definibile smart era un computer, adesso si hanno più dispositivi connessi per svolgere svariate attività.
+
+sta emergendo il concetto di \textbf{intelligenza distribuita} accompagnata da un'\textbf{interfaccia personale}.
+
+I dispositivi che si vogliono progettare dovrebbero avere funzionalità altamente \textbf{specifiche}, veicolate attraverso interfacce \textbf{generiche}. Le interfacce specifiche sono da evitare.
+
+Si prenda per esempio un robot da cucina che riesca a fare
+di tutto: frullare, centrifugare, cuocere più una vasta gamma di funzionalità selezionabili, tramite pulsanti, uno per ogni funzione, attraverso la sua interfaccia che è posta sul dispositivo stesso. Ciò è da ripudiare in favore di un robot senza un singolo tasto che capisca da sè cosa fa va fatto e come farlo.
+
+La progettazione per l'IoT è intrinsecamente più \textbf{complessa} della progettazione di servizi Web. Design fisico, design della UX e interconnettività di un unico sistema \textbf{non} possono essere gestiti separatamente.
+
+I prodotti connessi pongono i progettisti dinanzi a sfide progettuali nuove, molte di queste derivano da:
+
+\begin{itemize}
+	\item La \textbf{natura} specializzata dei servizi \textbf{IoT}.
+	\item La capacità dei dispositivi IoT di fare da \textbf{ponte tra il mondo digitale e fisico}.
+	\item Il fatto che molti prodotti IoT siano \textbf{sistemi distribuiti composti da più dispositivi}.
+	\item \textbf{Le stranezze del networking}.
+\end{itemize}
+
+\pagebreak
+
+\section{Real world context}
+Le interfacce, nel mondo dell'IoT sono sensori e attuatori. I \textbf{sensori} convertono una variabile \textbf{fisica} in un segnale \textbf{elettrico}, mentre gli
+attuatori convertono un segnale\textbf{ elettrico} in una variabile \textbf{fisica}.
+
+Gli attuatori possono essere controllati a distanza o automatizzati, ma a differenza dei comandi digitali, le azioni del mondo reale \textbf{non possono essere annullate}.
+Questo contesto fisico di utilizzo crea ulteriori sfide. Nell'IoT non si può dare per
+scontato lo stato d'animo dell'utente mentre interagisce con l'oggetto.
+
+Gli oggetti ubiquitari, andando a posizionarsi nei vari angoli della casa o dell'ufficio, si trovano ad interagire con persone che potrebbero momentaneamente non essere predisposte all'interazione con un oggetto digitale, ciò rende l'errore molto più frequente.
+
+Si devono creare quindi oggetti molto semplici da capire e a da utilizzare.
+
+Un altro aspetto importante è l'\textbf{interusabilità}, cioè la proprietà del sistema di essere usato attraverso tutti i dispositivi o interfacce che lo compongono (\textit{e.g. Google Assistant può essere usato tramite app, sito web o Google Home}).
+
+\begin{figure}[!h]
+	\includegraphics[scale=0.55]{immagini/UX_IoT.png}
+	\includegraphics[scale=0.5]{immagini/Sensors_actuators.png}
+\end{figure}
+
+\begin{flushleft}
+	\textit{Perché puntare così tanto su
+		questa caratteristica?}
+\end{flushleft}
+
+Perché bisogna consentire all'utente l'accesso e l'interazione col sistema dove e come egli la desidera, possibilmente il più compatibilmente possibile con le sue circostanze. L'\textbf{esperienza} deve però essere \textbf{univoca} tra le varie interfacce. Inoltre, gli utenti hanno bisogno di una certa comprensione di come funziona il sistema. Anche i prodotti connessi piuttosto semplici sono concettualmente più complessi di quelli non connessi. Quindi è necessario un oggetto che veicola un modello \textbf{concettuale chiaro} in modod tale che l'utente si crei un modello mentale solido.
+
+È necessario che si crei  un
+modello unificato di interazione, dove è chiaro che l'interfaccia e l'intelligenza siano distribuite, cosicché l'utente abbia un unico modello concettuale utilizzabile per l'intero sistema.
+
+Altra problematica è che molti progettisti progettano supponendo che i dispositivi siano sempre connessi, ma questo \textbf{non è sempre vero}! Anzi conviene rovesciare il paradigma, \textbf{progettando in assenza di internet assumendo che internet sia disponibile sporadicamente}. Con questo modo di progettare si considerano anche i ritardi e i problemi dovuti alle reti fisiche e alla trasmissione su di esse.
 
 \end{document}
