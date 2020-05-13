@@ -1,4 +1,11 @@
-# Appunti-PI-2019-20
+# Programmazione di Intefacce [2019-2020][Italiano]
 ![alt text](https://github.com/Gethseman/Appunti-PI-2019-20/blob/master/background.png)
 
-Appunti in corso d'opera del corso di Programmazione di Interfacce. Segnalatemi pure errori o possibili chiarimenti e correzioni su telegram: **@jan610**. Buono studio!
+## Authors
+Simone Pepi
+
+Francesco Iannelli
+
+---
+
+[Download](https://github.com/unipi-notes/HMI_Notes-2019-20/releases/latest)
